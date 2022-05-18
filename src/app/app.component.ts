@@ -6,5 +6,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'test-project4';
+  products: string[] = [];
+  newProductName: string = "";
+  addProduct(){
+    if (/^$/.test(this.newProductName)){
+      alert("New product name cannot be empty!")
+    }
+    else {
+      console.log(this.newProductName);
+      this.products.push(this.newProductName);
+    }
+  }
+
+  clearProducts(){
+    this.products = [];
+  }
+
+  onProductNameChange(event: any){
+    this.newProductName = event.target.value;
+  }
 }
